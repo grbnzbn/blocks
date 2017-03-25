@@ -158,6 +158,10 @@ function love.load()
     pieceType = 1
     pieceRotation = 1
 
+    -- Position of the piece in the playing area
+    pieceX = 3
+    pieceY = 0
+
 end -- End function love.load()
 
 -- Manage game state frame-to-frame
@@ -179,7 +183,7 @@ function love.draw()
 		for x = 1, 4 do
 			local block = pieceStructures[pieceType][pieceRotation][y][x]
 			if block ~= ' ' then
-				drawBlock(block, x, y)
+				drawBlock(block, x + pieceX, y + pieceY)
 			end
 		end
 	end
